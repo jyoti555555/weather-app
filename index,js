@@ -11,10 +11,22 @@ const userInfoContainer = document.querySelector(".user-info-container");
 
 //initially variables need?
 
-let oldTab = userTab;
-const API_KEY = "d1845658f92b31c64bd94f06f7188c9c"
-oldTab.classList.add("current-tab");
-getfromSessionStorage();
+const data = null;
+
+const xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener('readystatechange', function () {
+	if (this.readyState === this.DONE) {
+		console.log(this.responseText);
+	}
+});
+
+xhr.open('GET', 'https://weatherapi-com.p.rapidapi.com/current.json?q=53.1%2C-0.13');
+xhr.setRequestHeader('X-RapidAPI-Key', '4184bfd814msh7f705bb3fc372e9p1d08a6jsna0f6a231de35');
+xhr.setRequestHeader('X-RapidAPI-Host', 'weatherapi-com.p.rapidapi.com');
+
+xhr.send(data);
 
 
 
